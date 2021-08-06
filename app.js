@@ -30,7 +30,6 @@ function generate() {
     } else generate();
 
     squares.forEach(item => {
-        // if (item.innerHTML === '2') {item.classList.add("two")};
         number = item.innerHTML;
         (number === '0')? item.style.color = '#E9EDAB':item.style.color = 'rgba(255, 250, 234, 0.7)';
 
