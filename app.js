@@ -16,6 +16,10 @@ function createBoard() {
 
     generate();
     generate();
+
+    setTimeout(() => {
+        document.getElementById('info').style.display = 'none';
+    },5000)
 }
 
 createBoard();
