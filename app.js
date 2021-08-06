@@ -21,7 +21,6 @@ function createBoard() {
 createBoard();
 
 
-
 //generate a number randomly
 function generate() {
     let randomNumber = Math.floor(Math.random() * squares.length);
@@ -29,6 +28,52 @@ function generate() {
         squares[randomNumber].innerHTML = 2;
         checkForGameOver();
     } else generate();
+
+    squares.forEach(item => {
+        // if (item.innerHTML === '2') {item.classList.add("two")};
+        number = item.innerHTML;
+        (number === '0')? item.style.color = '#E9EDAB':item.style.color = 'rgba(255, 250, 234, 0.7)';
+
+        switch(number) {
+            case '0':
+                item.style.background = '#E9EDAB'
+                break;
+            case '2':
+                item.style.background = '#D6B696'
+                break;
+            case '4':
+                item.style.background = '#FAA2A2'
+                break;
+            case '8':
+                item.style.background = '#8DD9AD'
+                break;
+            case '16':
+                item.style.background = '#9196FA'
+                break;
+            case '32':
+                item.style.background = '#84E0FA'
+                break;
+            case '64':
+                item.style.background = '#EB7DFF'
+                break;
+            case '128':
+                item.style.background = '#DA605A'
+                break;
+            case '256':
+                item.style.background = '#6A7BFF'
+                break;
+            case '512':
+                item.style.background = '#F09E59'
+                break;
+            case '1024':
+                item.style.background = '#B9DB1A'
+                item.style.fontSize = '40px'
+                break;
+            case '2048':
+                item.style.background = '#CCE0DB'
+                break;
+        }
+    })
 }
 
 //swipe right
@@ -195,7 +240,7 @@ document.addEventListener('keyup', control);
 function checkForWin() {
     for (let i = 0; i < squares.length; i++) {
         if (squares[i].innerHTML == 2048) {
-            resultDiplay.innerHTML = 'You Win!!!';
+            resultDiplay.innerHTML = ' You Win!!!';
             document.removeEventListener('keyup', control);
         }
     }
@@ -210,7 +255,7 @@ function checkForGameOver() {
         }
     }
     if (zeros === 0) {
-        resultDiplay.innerHTML = 'You Lose!!!';
+        resultDiplay.innerHTML = ' You Lose!!!';
         document.removeEventListener('keyup', control);
     }
 }
